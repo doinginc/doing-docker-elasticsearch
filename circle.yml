@@ -17,4 +17,4 @@ deployment:
     owner: doinginc
     commands:
       - docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push doing/elasticsearch:${CIRCLE_TAG}
+      - docker push "doing/elasticsearch:$(echo $CIRCLE_TAG | sed 's/^[^0-9]*//g')"
